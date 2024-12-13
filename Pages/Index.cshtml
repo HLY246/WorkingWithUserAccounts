@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="homePageContainer">
+    <h1>Welcome!</h1>
+    <p>
+        I have built this app to practice and develop my skills with user accounts on web apps. This also includes having a simple "To Do List" that can save data to a users account.
+        To register an Account or to login to an existing one please click relevant link below:
+        
+
+        <div class="btnGroup">
+            <a class="btn" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="btn" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </div>
+
+        <hr/>
+
+        To use the "To Do List" feature click here:
+
+        <div class="btnGroup">
+            <a class="btn" asp-page="/ToDoList">To Do List</a>
+        </div>
+    </p>
+</div>

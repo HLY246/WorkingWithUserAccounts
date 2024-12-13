@@ -1,0 +1,53 @@
+﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@model WorkingWithUserAccounts.Pages.ToDoListModel
+@{
+    ViewData["Title"] = "To Do List";
+}
+
+<div id="toDoContainer">
+
+    <h1>@ViewData["Title"]</h1>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div>
+            <a class="btn createNewBtn" asp-page="CreateNewToDoTask">Crew New Task</a>
+        </div>
+
+        <table id="toDoTable">
+            <tr>
+                <th>Task Title</th>
+                <th>Task Description</th>
+                <th>Edit Options</th>
+            </tr>
+            @foreach(var ToDoItem in Model.ToDoList)
+            {
+                <tr>
+                    <td>@ToDoItem.ToDoName</td>
+                    <td>@ToDoItem.ToDoDescription</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="id" value="@ToDoItem.Id"/>
+                            <button class="btn" type="submit">Delete</button>
+                            <a class="btn" asp-page="/EditToDoTask" asp-route-id="@ToDoItem.Id">Edit</a>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <h3>you need to sign in to use this function</h3>
+        <div class="btnGroup">
+            <a class="btn" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="btn" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </div>
+    }
+</div>

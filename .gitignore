@@ -1,0 +1,12 @@
+#Exclude sensitive files
+*.env
+appsettings.json
+appsettings.Development.json
+
+#Exlude build artifacts
+bin/
+obj/
+
+#Exlude IDE-specific files
+.vscode/
+

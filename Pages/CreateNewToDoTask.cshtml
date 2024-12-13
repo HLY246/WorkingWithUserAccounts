@@ -1,0 +1,18 @@
+﻿@page
+@model WorkingWithUserAccounts.Pages.CreateNewToDoTaskModel
+@{
+}
+<div>
+	<h1>Create new Task</h1>
+
+	<form class="addForm" method="post">
+		<label class="addLabel" for="toDoName">Task Title</label>
+		<input class="addInput" type="text" name="toDoName" required/>
+
+		<label class="addLabel" for="toDoDescription">Task Description</label>
+		<input class="addInput" type="text" name="toDoDescription" required />
+
+		<button class="btn" type="submit">Add Task</button>
+		<a class="btn" asp-page="/ToDoList">Cancel</a>
+	</form>
+</div>

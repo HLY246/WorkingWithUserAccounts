@@ -1,0 +1,20 @@
+﻿@page
+@model WorkingWithUserAccounts.Pages.EditToDoTaskModel
+@{
+}
+
+<div>
+	<h1>Edit Task</h1>
+	<form class="addForm" method="post">
+		<input type="hidden" value="@Model.ToDoTaskToEdit.Id"/>
+
+		<label class="addLabel" for="newName">Task Title</label>
+		<input class="addInput" name="newName" type="text" value="@Model.ToDoTaskToEdit.ToDoName" required/>
+
+		<label class="addLabel" formaction="newDescription">Task Description</label>
+		<input class="addInput" name="newDescription" type="text" value="@Model.ToDoTaskToEdit.ToDoDescription" required />
+
+		<button class="btn" type="submit">Save Changes</button>
+		<a class="btn" asp-page="/ToDoList">Cancel</a>
+	</form>
+</div>
